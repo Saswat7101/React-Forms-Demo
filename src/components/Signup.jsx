@@ -1,6 +1,13 @@
 export default function Signup() {
   function handleSubmit(event) {
     event.preventDefault();
+
+    const formData = new FormData(event.target);
+    const acquisitionChannel = formData.getAll("acquisition");
+    const data = Object.fromEntries(formData.entries());
+    data.acquisition = acquisitionChannel;
+
+    console.log(data);
   }
 
   return (
